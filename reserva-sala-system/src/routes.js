@@ -17,3 +17,8 @@ routes.get('/registro', (req, res) => res.render('registro', {
 
 
 module.exports = routes;
+routes.get('/reserva', (req, res) => res.render('reserva', {
+  layout: 'default',
+}));
+
+module.exports = routes;

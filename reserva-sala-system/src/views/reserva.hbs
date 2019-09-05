@@ -1,0 +1,114 @@
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col">
+            <div class="card mt-5 mb-5 p-5">
+                <form action="">
+                    <div class="row">
+                        <div class="col mb-5">
+                            <h1>Filtrar sala</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col col-sm-2">
+                            <div class="form-group">
+                                <label for="status" class="bmd-label-floating">status</label>
+                                <select class="form-control" id="status">
+                                    <option>livre</option>
+                                    <option>ocupado</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col col-sm-2">
+                            <div class="form-group">
+                                <label for="diaSemana" class="bmd-label-floating">dias da semana</label>
+                                <select class="form-control" id="diaSemana">
+                                    <option>segunda-feira</option>
+                                    <option>terça-feira</option>
+                                    <option>quarta-feira</option>
+                                    <option>quinta-feira</option>
+                                    <option>sexta-feira</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col col-sm-2">
+                            <div class="form-group">
+                                <label for="periodo" class="bmd-label-floating">periodo</label>
+                                <select class="form-control" id="periodo">
+                                    <option>manhã</option>
+                                    <option>tarde</option>
+                                    <option>noite</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col col-sm-2">
+                            <div class="form-group">
+                                <label for="dataInicio" class="bmd-label-floating">inicio</label>
+
+                                <input type="datetime" class="form-control mt-2" id="dataInicio" placeholder="inicio">
+                            </div>
+                        </div>
+                        <div class="col col-sm-2">
+                            <div class="form-group">
+                                <label for="dataInicio" class="bmd-label-floating">fim</label>
+                                <input type="datetime" class="form-control mt-2" id="dataInicio" placeholder="inicio">
+                            </div>
+                        </div>
+                        <div class="col-sm-2 col">
+                            <div class="form-group">
+                                <button class="btn btn-primary mt-4 btn-raised">buscar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </form>
+                <div class="row">
+                    <div class="col">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">sala</th>
+                                    <th scope="col">status</th>
+                                    <th scope="col">data</th>
+                                    <th scope="col">periodo</th>
+                                    <th scope="col">ação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Sala 22</th>
+                                    <td>livre</td>
+                                    <td>20/09/19 - 31/13/19</td>
+                                    <td>manhã, tarde</td>
+                                    <td>
+                                        <a href="#" class="btn btn-info">info</a>
+                                        <a href="#" class="btn btn-primary">reservar</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Sala 23</th>
+                                    <td>livre</td>
+                                    <td>20/09/19 - 31/13/19</td>
+                                    <td>noite</td>
+                                    <td>
+                                        <a href="#" class="btn btn-info">info</a>
+                                        <a href="#" class="btn btn-primary">reservar</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Sala 32</th>
+                                    <td>livre</td>
+                                    <td>20/09/19 - 31/13/19</td>
+                                    <td>noite</td>
+                                    <td>
+                                        <a href="#" class="btn btn-info">info</a>
+                                        <a href="#" class="btn btn-primary">reservar</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
