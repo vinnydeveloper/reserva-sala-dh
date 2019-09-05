@@ -1,17 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Best Website</title>
-  <meta name="HandheldFriendly" content="True" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  {{!-- <link rel="stylesheet" href="/css/main.min.css"> --}}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>DH Salas</title>
+  <link rel="stylesheet" href="/css/bootstrap-material-design.min.css">
+  <link rel="stylesheet" href="/css/default.css">
 </head>
+
 <body>
-  <div class="container">
-      Oi hendy
-    {{{body}}}
-  </div>
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand">DH Salas</a>
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+      <button class="btn btn-outline my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </nav>
+
+  {{{body}}}
+
+  <footer class="text-center">
+    <p>Feito com &#10084; por profs</p>
+  </footer>
+  <script src="/js/jquery-3.2.1.slim.min.js">
+  </script>
+  <script src="/js/popper.js"></script>
+  <script src="/js/bootstrap-material-design.js"></script>
 </body>
+
 </html>
