@@ -9,4 +9,10 @@ routes.get('/', (req, res) => {
   });
 });
 
+routes.get('/reserva', (req, res) => {
+  return res.render('reserva', {
+    layout: 'default'
+  });
+});
+
 module.exports = routes;
