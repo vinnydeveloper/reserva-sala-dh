@@ -1,10 +1,8 @@
 const express = require('express');
+
 const routes = express.Router();
 
-//rotas padrãoes sistema
-routes.get('/', (req,res)=>{
-    return res.render('index')
+// rotas padrãoes sistema
+routes.get('/', (req, res) => res.render('index'));
 
-})
-
-module.exports = routes
+module.exports = routes;
