@@ -29,6 +29,18 @@ body {
     font-family: 'montserratlight', sans-serif;
 }
 
+header .login {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+header .login img {
+    width: 5%;
+    margin: 0 1em;
+}
+
 .img-responsive {
     max-width: 100%;
 }
