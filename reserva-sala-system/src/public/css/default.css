@@ -37,7 +37,7 @@ header .login {
 }
 
 header .login img {
-    width: 5%;
+    width: 50px;
     margin: 0 1em;
 }
 
@@ -110,20 +110,20 @@ form label.form-check-label:before {
     border-radius: 2px;
 }
 
-.login .row,
+body.login .row,
 .container-fluid {
     min-height: 90vh;
 }
 
-.login footer {
+body.login footer {
     min-height: 10vh;
 }
 
-.login .card {
+body.login .card {
     padding: 3em;
 }
 
-.login .logo {
+body.login .logo {
     display: flex;
     justify-content: center;
     font-size: 2rem;
@@ -132,7 +132,7 @@ form label.form-check-label:before {
     text-transform: uppercase;
 }
 
-.login .row {
+body.login .row {
     padding: 0 1em;
 }
 
