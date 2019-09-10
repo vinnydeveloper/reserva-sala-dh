@@ -27,7 +27,6 @@ body {
     margin: 0;
     font-family: 'montserratlight', sans-serif;
 }
-<<<<<<< HEAD
 header .login{
   display: flex;
   align-items: center;
@@ -38,7 +37,6 @@ header .login img {
   width: 5%;
   margin: 0 1em;
 }
-=======
 
 .img-responsive {
     max-width: 100%;
@@ -127,4 +125,3 @@ form label.form-check-label:before {
 .login .row {
     padding: 0 1em;
 }
->>>>>>> ce8a8e376dbd6be1d561f62662b581382cd9f109
