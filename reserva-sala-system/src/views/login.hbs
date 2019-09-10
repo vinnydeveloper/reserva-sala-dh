@@ -1,28 +1,35 @@
-
-    <section class="row justify-content-center align-items-center">
-      <div class="col-md-5 card justify-content-center">
+<section>
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+        <img src="/images/undraw_events.svg" class="img-responsive" alt="">
+      </div>
+      <div class="col card justify-content-center">
         <div class="logo">
           DH Salas
         </div>
         <form class="login/auth" method="post">
           <div class="form-group">
-            <label for="inputEmail" class="bmd-label-floating">Email</label>
+            <label for="inputEmail">Email</label>
             <input type="email" class="form-control" id="inputEmail">
-            <small id="emailHelp" class="form-text text-muted">Nunca compartilhe seu login com estranhos!</small>
           </div>
           <div class="form-group">
             <label for="inputPassword">Senha</label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="Inisira sua senha">
+            <input type="password" class="form-control" id="inputPassword">
           </div>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="lembrarLogin">Lembre-se de min!</label>
+            <label class="form-check-label" for="lembrarLogin">
+              <input type="checkbox" class="form-check-input" id="lembrarLogin">
+              <span class="checkmark"></span>
+              Lembrar acesso
+            </label>
           </div>
-          <div class="form-group d-flex flex-wrap justify-content-between my-3">
-            <button class="btn btn-raised btn-secondary">Esqueci minha senha</button>
-            {{!-- <button type="submit" class="btn btn-raised btn-primary">Entrar</button> --}}
-            <a href="/reserva" class="btn btn-raised btn-primary">Entrar</a>
+          <div class="form-group d-flex flex-wrap justify-content-end my-3">
+            <button class="btn  btn-default lowcase">esqueci minha senha</button>
+            <button type="submit" class="btn btn-raised btn-primary">Entrar</button>
           </div>
         </form>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
