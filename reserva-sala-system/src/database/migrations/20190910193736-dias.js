@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, DataTypes) => {
-    return queryInterface.createTable('campus', {
+    return queryInterface.createTable('dias', {
       id: {
         allowNull: false,
         autoIncrement: true,

@@ -35,13 +35,7 @@ module.exports = {
 
 
   down: (queryInterface) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
 
-      Example:
-      return queryInterface.dropTable('users');
-    */
-   return queryInterface.dropTable('usuarios');
+    return queryInterface.dropTable('usuarios');
   }
 };

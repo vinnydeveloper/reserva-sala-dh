@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, DataTypes) => {
-    return queryInterface.createTable('usuarios', {
+    return queryInterface.createTable('reservas', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -25,7 +25,7 @@ module.exports = {
         allowNull: false,
         type: DataTypes.STRING,
       },
-      usuario_id:{
+      usuario_id: {
         allowNull: false,
         type: DataTypes.INTEGER,
         references: {
@@ -33,7 +33,7 @@ module.exports = {
           key: 'id',
         }
       },
-      turma_id:{
+      turma_id: {
         allowNull: false,
         type: DataTypes.INTEGER,
         references: {
@@ -41,11 +41,11 @@ module.exports = {
           key: 'id',
         }
       },
-      sala_id:{
+      sala_id: {
         allowNull: false,
         type: DataTypes.INTEGER,
         references: {
-          model: 'sala', // name of Source model
+          model: 'salas', // name of Source model
           key: 'id',
         }
       },
@@ -61,13 +61,7 @@ module.exports = {
   },
 
 
-  down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.dropTable('users');
-    */
+  down: (queryInterface) => {
+    return queryInterface.dropTable('reservas');
   }
 };
