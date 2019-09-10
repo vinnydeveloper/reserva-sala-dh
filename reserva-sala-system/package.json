@@ -22,7 +22,9 @@
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "handlebars": "^4.2.0",
-    "hbs": "^4.0.4"
+    "hbs": "^4.0.4",
+    "sequelize": "^5.18.4",
+    "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
     "eslint": "^6.3.0",
