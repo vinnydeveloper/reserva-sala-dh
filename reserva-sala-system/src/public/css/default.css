@@ -1,5 +1,6 @@
 @import 'fonts.css';
 
+
 * {
     box-sizing: border-box;
 }
@@ -30,6 +31,13 @@ body {
 
 .img-responsive {
     max-width: 100%;
+}
+
+
+.btn-outline-primary.custom-file-control:before,
+.btn.btn-outline-primary {
+    color: #474463;
+    border-color: #474463;
 }
 
 .bmd-btn-fab.btn-primary.custom-file-control:before,
@@ -114,4 +122,30 @@ form label.form-check-label:before {
 
 .login .row {
     padding: 0 1em;
+}
+
+.dashboard-img {
+    width: 500px;
+    opacity: .7;
+}
+
+.navbar-collapse {
+    flex-grow: inherit;
+}
+
+.navbar-brand img {
+    width: 150px;
+}
+
+.navbar ul li a {
+    color: #474463;
+    font-weight: 700;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a:active {
+    color: #cf2938;
+    text-decoration: none;
 }
