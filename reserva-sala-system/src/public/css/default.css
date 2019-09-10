@@ -27,3 +27,91 @@ body {
     margin: 0;
     font-family: 'montserratlight', sans-serif;
 }
+
+.img-responsive {
+    max-width: 100%;
+}
+
+.bmd-btn-fab.btn-primary.custom-file-control:before,
+.btn-group-raised .btn-primary.custom-file-control:before,
+.btn-group-raised .btn.btn-primary,
+.btn-raised.btn-primary.custom-file-control:before,
+.btn.bmd-btn-fab.btn-primary,
+.btn.btn-raised.btn-primary {
+    color: #fff;
+    background-color: #474463;
+    border-color: #474463;
+}
+
+.btn.btn-default {
+    text-transform: lowercase;
+}
+
+form .form-check {
+    padding-left: 25px;
+}
+
+form label.form-check-label {
+    vertical-align: bottom;
+}
+
+form label.form-check-label input[type='checkbox'] {
+    display: none;
+}
+
+form label.form-check-label input[type='checkbox']:checked~.checkmark {
+    opacity: 1;
+    transition: 0.1s ease;
+}
+
+form label.form-check-label .checkmark {
+    opacity: 0;
+    position: absolute;
+    width: 7px;
+    height: 11px;
+    border-right: 3px solid #474463;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(40deg);
+    top: 6px;
+    left: 8px;
+    border-radius: 2px;
+    border-bottom: 3px solid #474463;
+}
+
+form label.form-check-label:before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 19px;
+    height: 19px;
+    border: 2px solid #474463;
+    border-radius: 2px;
+}
+
+.login .row,
+.container-fluid {
+    min-height: 90vh;
+}
+
+.login footer {
+    min-height: 10vh;
+}
+
+.login .card {
+    padding: 3em;
+}
+
+.login .logo {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    padding: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.login .row {
+    padding: 0 1em;
+}
