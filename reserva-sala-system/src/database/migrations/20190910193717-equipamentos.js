@@ -1,27 +1,25 @@
 
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('turmas', {
+  up: (queryInterface, DataTypes) => queryInterface.createTable('equipamentos', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
     },
     nome: {
       allowNull: false,
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
     createdAt: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
     updatedAt: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
   }),
 
-  down: (queryInterface) => {
-    queryInterface.dropTable('users');
-  },
+  down: (queryInterface) => queryInterface.dropTable('equipamentos'),
 };

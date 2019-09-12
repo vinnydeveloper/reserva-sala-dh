@@ -1,31 +1,31 @@
 
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('reservas', {
+  up: (queryInterface, DataTypes) => queryInterface.createTable('reservas', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
     },
     motivo: {
       allowNull: false,
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
     data_inicio: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
     data_fim: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
     observacoes: {
       allowNull: false,
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
     usuario_id: {
       allowNull: false,
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       references: {
         model: 'usuarios', // name of Source model
         key: 'id',
@@ -33,7 +33,7 @@ module.exports = {
     },
     turma_id: {
       allowNull: false,
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       references: {
         model: 'turmas', // name of Source model
         key: 'id',
@@ -41,7 +41,7 @@ module.exports = {
     },
     sala_id: {
       allowNull: false,
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       references: {
         model: 'salas', // name of Source model
         key: 'id',
@@ -49,16 +49,14 @@ module.exports = {
     },
     createdAt: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
     updatedAt: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
   }),
 
 
-  down: (queryInterface) => {
-    queryInterface.dropTable('users');
-  },
+  down: (queryInterface) => queryInterface.dropTable('reservas'),
 };

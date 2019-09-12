@@ -1,26 +1,26 @@
 
 module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('salas', {
+  up: (queryInterface, DataTypes) => queryInterface.createTable('salas', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
     },
     nome: {
       allowNull: false,
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
     lotacao: {
       allowNull: true,
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
     },
     descricao: {
       allowNull: true,
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
     campus_id: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       references: {
         model: 'campus',
         key: 'id',
@@ -28,11 +28,11 @@ module.exports = {
     },
     createdAt: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
     updatedAt: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
   }),
 
