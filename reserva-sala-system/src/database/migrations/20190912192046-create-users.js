@@ -1,12 +1,12 @@
 module.exports = {
-  up: (queryInterface, DataTypes) => queryInterface.createTable('Usuarios', {
+  up: (queryInterface, DataTypes) => queryInterface.createTable('User', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER,
     },
-    nome: {
+    name: {
       allowNull: false,
       type: DataTypes.STRING,
     },
@@ -15,7 +15,7 @@ module.exports = {
       type: DataTypes.STRING,
       unique: true,
     },
-    senha: {
+    password: {
       allowNull: false,
       type: DataTypes.STRING,
     },
@@ -29,5 +29,5 @@ module.exports = {
     },
   }),
 
-  down: (queryInterface) => queryInterface.dropTable('Usuarios'),
+  down: (queryInterface) => queryInterface.dropTable('Users'),
 };

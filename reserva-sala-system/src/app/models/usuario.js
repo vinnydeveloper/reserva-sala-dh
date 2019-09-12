@@ -1,5 +1,5 @@
-module.exports = {
-  up: (queryInterface, DataTypes) => queryInterface.createTable('Usuarios', {
+module.exports = (sequelize, DataTypes) => {
+  const Usuarios = sequelize.define('Usuarios', {
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -27,7 +27,9 @@ module.exports = {
       allowNull: false,
       type: DataTypes.DATE,
     },
-  }),
+  }, {
+    freezeTableName: true,
+  });
 
-  down: (queryInterface) => queryInterface.dropTable('Usuarios'),
+  return Usuarios;
 };

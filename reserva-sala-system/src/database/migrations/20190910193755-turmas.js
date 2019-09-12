@@ -1,50 +1,45 @@
-'use strict';
 
 module.exports = {
-  up: (queryInterface, DataTypes) => {
-    return queryInterface.createTable('turmas', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: DataTypes.INTEGER,
-      },
-      codigoTurma: {
-        allowNull: false,
-        type: DataTypes.STRING,
-      },
-      curso: {
-        allowNull: false,
-        type: DataTypes.STRING,
-      },
-      periodo: {
-        allowNull: false,
-        type: DataTypes.STRING,
-      },
-      dataInicio: {
-        allowNull: false,
-        type: DataTypes.DATE,
-      },
-      dataFim: {
-        allowNull: false,
-        type: DataTypes.DATE,
-      },
-      observacao: {
-        allowNull: false,
-        type: DataTypes.STRING,
-      },
-      createdAt: {
-        allowNull: false,
-        type: DataTypes.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: DataTypes.DATE
-      }
-    })
-  },
+  up: (queryInterface, Sequelize) => queryInterface.createTable('turmas', {
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: Sequelize.INTEGER,
+    },
+    codigoTurma: {
+      allowNull: false,
+      type: Sequelize.STRING,
+    },
+    curso: {
+      allowNull: false,
+      type: Sequelize.STRING,
+    },
+    periodo: {
+      allowNull: false,
+      type: Sequelize.STRING,
+    },
+    dataInicio: {
+      allowNull: false,
+      type: Sequelize.DATE,
+    },
+    dataFim: {
+      allowNull: false,
+      type: Sequelize.DATE,
+    },
+    observacao: {
+      allowNull: false,
+      type: Sequelize.STRING,
+    },
+    createdAt: {
+      allowNull: false,
+      type: Sequelize.DATE,
+    },
+    updatedAt: {
+      allowNull: false,
+      type: Sequelize.DATE,
+    },
+  }),
 
-  down: (queryInterface) => {
-    return queryInterface.dropTable('turmas');
-  }
+  down: (queryInterface) => queryInterface.dropTable('turmas'),
 };

@@ -1,30 +1,25 @@
-'use strict';
 
 module.exports = {
-  up: (queryInterface, DataTypes) => {
-    return queryInterface.createTable('campus', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: DataTypes.INTEGER,
-      },
-      nome: {
-        allowNull: false,
-        type: DataTypes.STRING,
-      },
-      createdAt: {
-        allowNull: false,
-        type: DataTypes.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: DataTypes.DATE
-      }
-    })
-  },
+  up: (queryInterface, Sequelize) => queryInterface.createTable('dias', {
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: Sequelize.INTEGER,
+    },
+    nome: {
+      allowNull: false,
+      type: Sequelize.STRING,
+    },
+    createdAt: {
+      allowNull: false,
+      type: Sequelize.DATE,
+    },
+    updatedAt: {
+      allowNull: false,
+      type: Sequelize.DATE,
+    },
+  }),
 
-  down: (queryInterface) => {
-    return queryInterface.dropTable('dias');
-  }
+  down: (queryInterface) => queryInterface.dropTable('dias'),
 };
