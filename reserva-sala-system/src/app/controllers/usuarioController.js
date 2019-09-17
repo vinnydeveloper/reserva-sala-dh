@@ -18,10 +18,13 @@ module.exports = {
     }).then(() => {
       return res.render('login', {
         layout: 'default',
-        message: 'Usuario cadastrado com sucesso!'
+        message: 'Usuario cadastrado com sucesso'
       })
     }).catch(() => {
-
+      return res.render('usuarioCadastro', {
+        layout: 'default',
+        message: 'Erro ao enviar formulário'
+      })
     })
   },
 
