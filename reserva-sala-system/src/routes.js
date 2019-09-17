@@ -13,11 +13,9 @@ routes.get('/login', (req, res) => res.render('login', {
   layout: 'auth',
 }));
 
-routes.get('/registro', (req, res) => res.render('registro', {
-  layout: 'auth',
-}));
+routes.get('/usuario/cadastrar', UsuarioController.index);
 
-routes.get('/criarUsuario', UsuarioController.criar);
+routes.post('/usuario/cadastrar', UsuarioController.cadastrar);
 
 module.exports = routes;
 routes.get('/reserva', (req, res) => res.render('reserva', {
