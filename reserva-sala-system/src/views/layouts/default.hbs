@@ -66,7 +66,7 @@
   <footer class="text-center">
     <p>Feito com &#10084; por profs</p>
   </footer>
-  {{#if message}}
+  {{#if mensagem}}
   <div class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -76,7 +76,7 @@
           </button>
         </div>
         <div class="modal-body text-center">
-          <p>{{{message}}}</p>
+          <p>{{{mensagem}}}</p>
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@
   </script>
   <script src="/js/popper.js"></script>
   <script src="/js/bootstrap-material-design.js"></script>
-  {{#if message}}
+  {{#if mensagem}}
   <script>
     $('.modal').modal('show')
   </script>

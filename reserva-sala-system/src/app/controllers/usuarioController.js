@@ -13,10 +13,10 @@ module.exports = {
       senha: req.body.senha,
     }).then(() => res.render('login', {
       layout: 'default',
-      message: 'Usuario cadastrado com sucesso',
+      mensagem: 'Usuario cadastrado com sucesso',
     })).catch(() => res.render('usuarioCadastro', {
       layout: 'default',
-      message: 'Erro ao enviar formulário',
+      mensagem: 'Erro ao enviar formulário',
     }));
   },
 };

@@ -3,7 +3,7 @@ const { Usuarios } = require('../models');
 module.exports = {
 
   index(req, res) {
-    return res.render('login', { layout: 'default' });
+    return res.render('login');
   },
   async logar(req, res) {
     const dados = req.body;
@@ -23,14 +23,13 @@ module.exports = {
       limit: 1,
       raw: true,
     });
-    console.log(usuarios);
     if (usuarios == null) {
       return res.render('login', {
-        menssagem: 'Usuario ou Senha inválida!',
+        mensagem: 'Usuario ou Senha inválida!',
       });
     }
     return res.render('login', {
-      menssagem: 'Deu bom viado',
+      mensagem: 'Deu bom viado',
     });
   },
 
