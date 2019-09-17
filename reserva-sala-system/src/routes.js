@@ -2,6 +2,7 @@ const express = require('express');
 
 const routes = express.Router();
 const UsuarioController = require('./app/controllers/usuarioController');
+const LoginController = require('./app/controllers/loginController');
 
 
 // rotas padrãoes sistema
@@ -10,8 +11,10 @@ routes.get('/', (req, res) => res.render('index', {
 }));
 
 routes.get('/login', (req, res) => res.render('login', {
-  layout: 'auth',
+
 }));
+
+routes.post('/login', LoginController.logar);
 
 routes.get('/usuario/cadastrar', UsuarioController.index);
 

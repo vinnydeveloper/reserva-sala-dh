@@ -9,15 +9,15 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use('/', express.static(`${__dirname}/public`));
 app.use(express.urlencoded({
-  extended: false
+  extended: false,
 }));
 app.use(express.json());
 app.engine(
   'hbs',
   hbs({
     extname: 'hbs',
-    defaultView: 'default',
     layoutsDir: `${__dirname}/views/layouts/`,
+    defaultLayout: 'default',
   }),
 );
 app.use(routes);
