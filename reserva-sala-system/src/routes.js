@@ -9,7 +9,7 @@ routes.get('/', (req, res) => res.render('index', {
 }));
 
 routes.get('/login', (req, res) => res.render('login', {
-  layout: 'auth',
+  layout: 'default',
 }));
 
 routes.get('/usuario/cadastrar', UsuarioController.index);

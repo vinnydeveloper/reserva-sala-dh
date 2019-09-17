@@ -6,7 +6,7 @@ module.exports = {
 
   index(req, res) {
     return res.render('usuarioCadastro', {
-      layout: 'auth',
+      layout: 'default',
     })
   },
   cadastrar(req, res) {
@@ -17,7 +17,7 @@ module.exports = {
       senha: req.body.senha,
     }).then(() => {
       return res.render('login', {
-        layout: 'auth',
+        layout: 'default',
         message: 'Usuario cadastrado com sucesso!'
       })
     }).catch(() => {
