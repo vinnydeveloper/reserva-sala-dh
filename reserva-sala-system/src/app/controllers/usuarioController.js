@@ -1,11 +1,28 @@
-
-const { Usuarios } = require('../models');
+const {
+  Usuarios
+} = require('../models');
 
 module.exports = {
 
-  criar() {
-    console.log(Usuarios);
-    Usuarios.create({ nome: 'Vinicius', email: 'Vinicius@rocketseat.com.br', senha: '123456' });
+  index(req, res) {
+    return res.render('usuarioCadastro', {
+      layout: 'auth',
+    })
+  },
+  cadastrar(req, res) {
+    console.log(req.body)
+    Usuarios.create({
+      nome: req.body.nome,
+      email: req.body.email,
+      senha: req.body.senha,
+    }).then(() => {
+      return res.render('login', {
+        layout: 'auth',
+        message: 'Usuario cadastrado com sucesso!'
+      })
+    }).catch(() => {
+
+    })
   },
 
 };
