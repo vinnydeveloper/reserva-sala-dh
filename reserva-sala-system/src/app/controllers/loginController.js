@@ -39,8 +39,8 @@ module.exports = {
     return res.redirect('/');
   },
   deslogar(req, res) {
-    req.session = null;
-    res.locals.session = req.session;
+    const { session } = req;
+    session.destroy();
     res.redirect('/login');
   },
 
