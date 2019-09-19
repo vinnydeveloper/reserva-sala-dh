@@ -1,6 +1,6 @@
 <section>
     <div class="container-fluid">
-        <div class="card">
+        <div class="card mt-5 mb-5 p-5">
             <div class="row">
                 <div class="col">
                     <h1>Calendário</h1>
@@ -13,9 +13,57 @@
             </div>
             <div class="row">
                 <div class="col">
-                    calendário aqui
+                    <div id='calendar'>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+{{#section 'scripts'}}
+<script src='/js/fullcalendar/core/main.js'></script>
+<script src='/js/fullcalendar/core/locales/pt-br.js'></script>
+<script src='/js/fullcalendar/daygrid/main.js'></script>
+<script src='/js/fullcalendar/list/main.js'></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var calendarEl = document.getElementById('calendar');
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            plugins: ['dayGrid'],
+            defaultView: 'dayGridMonth',
+            locale: "pt-br",
+            header: {
+                left: 'today',
+                center: 'title',
+                right: 'prev,next'
+            },
+            events: [{
+                title: 'Sala 2 - Aula Fullstack',
+                start: '2019-09-19T14:30:00',
+                extendedProps: {
+                    status: 'done'
+                }
+            },
+            {
+                title: 'Sala 1 - Aula Marketing',
+                start: '2019-09-19T07:00:00',
+                backgroundColor: 'green',
+                borderColor: 'green'
+            },
+            {
+                title: 'Sala 3 - Aula UX',
+                start: '2019-09-19T07:00:00',
+                backgroundColor: 'green',
+                borderColor: 'green'
+            }
+            ],
+        });
+
+        calendar.render();
+    });
+
+</script>
+{{/section}}
