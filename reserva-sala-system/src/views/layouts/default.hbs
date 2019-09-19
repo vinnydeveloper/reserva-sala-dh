@@ -6,8 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>DH Salas</title>
+
   <link rel="stylesheet" href="/css/bootstrap-material-design.min.css">
+  <link href='/js/fullcalendar/core/main.css' rel='stylesheet' />
+  <link href='/js/fullcalendar/daygrid/main.css' rel='stylesheet' />
+  <link href='/js/fullcalendar/list/main.css' rel='stylesheet' />
   <link rel="stylesheet" href="/css/default.css">
+
 </head>
 
 <body>
@@ -22,7 +27,7 @@
       </button>
       <div class="collapse navbar-collapse text-right" id="navbarNav">
 
-        {{#if logado}}
+        {{#if session.usuario}}
 
         <ul class="navbar-nav">
           <li class="nav-item">
@@ -39,7 +44,8 @@
 
         <div class="login">
           <img src="/images/undraw_female.svg" alt="" srcset="">
-          Olá Usuario
+          Olá {{{ session.usuario.nome}}}
+          <a href="/logout">Sair</a>
         </div>
 
         {{else}}
@@ -89,8 +95,53 @@
   {{#if mensagem}}
   <script>
     $('.modal').modal('show')
+
   </script>
   {{/if}}
+
+  <script src='/js/fullcalendar/core/main.js'></script>
+  <script src='/js/fullcalendar/core/locales/pt-br.js'></script>
+  <script src='/js/fullcalendar/daygrid/main.js'></script>
+  <script src='/js/fullcalendar/list/main.js'></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var calendarEl = document.getElementById('calendar');
+
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        plugins: ['list'],
+        defaultView: 'listWeek',
+        locale: "pt-br",
+        header: {
+          left: 'today',
+          center: '',
+          right: 'prev,next'
+        },
+        events: [{
+            title: 'Sala 2 - Aula Fullstack',
+            start: '2019-09-19T14:30:00',
+            extendedProps: {
+              status: 'done'
+            }
+          },
+          {
+            title: 'Sala 1 - Aula Marketing',
+            start: '2019-09-19T07:00:00',
+            backgroundColor: 'green',
+            borderColor: 'green'
+          },
+           {
+            title: 'Sala 3 - Aula UX',
+            start: '2019-09-19T07:00:00',
+            backgroundColor: 'green',
+            borderColor: 'green'
+          }
+        ],
+      });
+
+      calendar.render();
+    });
+
+  </script>
 </body>
 
 </html>

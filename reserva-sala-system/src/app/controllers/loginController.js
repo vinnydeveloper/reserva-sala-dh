@@ -1,3 +1,4 @@
+
 const { Usuarios } = require('../models');
 
 module.exports = {
@@ -7,6 +8,8 @@ module.exports = {
   },
   async logar(req, res) {
     const dados = req.body;
+    const { session } = req;
+
 
     // validando se o login não está vazio
     if (!dados) {
@@ -28,9 +31,17 @@ module.exports = {
         mensagem: 'Usuario ou Senha inválida!',
       });
     }
-    return res.render('login', {
-      mensagem: 'Deu bom viado',
-    });
+    session.usuario = {
+      id: usuarios.id,
+      nome: usuarios.nome,
+    };
+
+    return res.redirect('/');
+  },
+  deslogar(req, res) {
+    req.session = null;
+    res.locals.session = req.session;
+    res.redirect('/login');
   },
 
 };
