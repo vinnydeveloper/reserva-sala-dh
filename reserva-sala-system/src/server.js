@@ -39,5 +39,6 @@ app.use((req, res, next) => {
   res.locals.session = req.session;
   next();
 });
+
 app.use(routes);
 app.listen(3300, console.log('Servidor rodando na porta 3300'));

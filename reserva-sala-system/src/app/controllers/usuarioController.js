@@ -1,4 +1,9 @@
-const { Usuarios } = require('../models');
+const {
+  Usuarios,
+  sequelize
+} = require('../models');
+
+// const sequelize = require('sequelize');
 
 module.exports = {
 
@@ -19,4 +24,9 @@ module.exports = {
       mensagem: 'Erro ao enviar formulário',
     }));
   },
+  list(req, res) {
+    sequelize.query('SELECT * FROM usuarios').then(usuarios => {
+      console.log(usuarios);
+    });
+  }
 };
