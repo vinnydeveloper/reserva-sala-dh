@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require('path');
 const hbs = require('express-handlebars');
-const hbs_sections = require('express-handlebars-sections');
+const hbsSections = require('express-handlebars-sections');
 const session = require('express-session');
 const routes = require('./routes');
 
@@ -12,27 +12,28 @@ app.set('view engine', 'hbs');
 app.use(session({
   secret: 'reserva@123',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
 }));
 app.use('/', express.static(`${__dirname}/public`));
 app.use(express.urlencoded({
-  extended: false
+  extended: false,
 }));
 app.use(express.json());
+
 app.engine('hbs', hbs({
   extname: 'hbs',
   layoutsDir: `${__dirname}/views/layouts/`,
-  section: hbs_sections(),
+  section: hbsSections(),
   defaultLayout: 'default',
   helpers: {
-    section: function (name, options) {
+    section(name, options) {
       if (!this._sections) {
-        this._sections = {}
-      };
+        this._sections = {};
+      }
       this._sections[name] = options.fn(this);
       return null;
-    }
-  }
+    },
+  },
 }));
 
 app.use((req, res, next) => {

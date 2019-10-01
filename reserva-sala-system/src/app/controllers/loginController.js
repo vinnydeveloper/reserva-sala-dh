@@ -1,4 +1,5 @@
 
+const bcrypt = require('bcrypt');
 const { Usuarios } = require('../models');
 
 module.exports = {
@@ -10,7 +11,6 @@ module.exports = {
     const dados = req.body;
     const { session } = req;
 
-
     // validando se o login não está vazio
     if (!dados) {
       return res.render('login', {
@@ -21,12 +21,12 @@ module.exports = {
     const usuarios = await Usuarios.findOne({
       where: {
         email: dados.email,
-        senha: dados.senha,
       },
       limit: 1,
       raw: true,
     });
-    if (usuarios == null) {
+    const pass = bcrypt.compareSync(dados.senha, usuarios.senha);
+    if (usuarios == null || !pass) {
       return res.render('login', {
         mensagem: 'Usuario ou Senha inválida!',
       });

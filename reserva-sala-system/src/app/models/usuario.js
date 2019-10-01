@@ -9,11 +9,19 @@ module.exports = (sequelize, DataTypes) => {
     nome: {
       allowNull: false,
       type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          msg: 'O campo nome não pode ser vazio',
+        },
+      },
     },
     email: {
       allowNull: false,
       type: DataTypes.STRING,
-      unique: true,
+      unique: {
+        args: true,
+        msg: 'Email address already in use!',
+      },
     },
     senha: {
       allowNull: false,

@@ -22,4 +22,18 @@
       </div>
     </form>
   </div>
+  {{#if erros}}
+  <div class="col-md-5 card justify-content-center p-5">
+    <h1 class="logo">
+      Errors
+    </h1>
+    <ul>
+
+      {{#each erros}}
+      <li>{{this.message}}</li>
+      {{/each}}
+
+    </ul>
+  </div>
+  {{/if}}
 </section>

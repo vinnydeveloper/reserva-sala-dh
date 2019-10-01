@@ -1,3 +1,5 @@
+
+const bcrypt = require('bcrypt');
 const { Usuarios } = require('../models');
 
 module.exports = {
@@ -6,17 +8,20 @@ module.exports = {
     return res.render('usuarioCadastro');
   },
   cadastrar(req, res) {
-    console.log(req.body);
+    const salt = bcrypt.genSaltSync(10);
+    const passWordHash = bcrypt.hashSync(req.body.senha, salt);
     Usuarios.create({
       nome: req.body.nome,
       email: req.body.email,
-      senha: req.body.senha,
+      senha: passWordHash,
     }).then(() => res.render('login', {
       layout: 'default',
       mensagem: 'Usuario cadastrado com sucesso',
-    })).catch(() => res.render('usuarioCadastro', {
-      layout: 'default',
-      mensagem: 'Erro ao enviar formulário',
-    }));
+    })).catch((error) => {
+      res.render('usuarioCadastro', {
+        layout: 'default',
+        erros: error.errors,
+      });
+    });
   },
 };

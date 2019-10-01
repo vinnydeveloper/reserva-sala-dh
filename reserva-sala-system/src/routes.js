@@ -5,8 +5,8 @@ const UsuarioController = require('./app/controllers/usuarioController');
 const LoginController = require('./app/controllers/loginController');
 const Auth = require('./app/middlewares/auth');
 
-
 // rotas padrãoes sistema
+
 routes.get('/', Auth.verificarLogin, (req, res) => res.render('index'));
 
 routes.get('/login', (req, res) => res.render('login', {}));
@@ -20,7 +20,7 @@ routes.post('/usuario/cadastrar', UsuarioController.cadastrar);
 
 routes.get('/reserva', Auth.verificarLogin, (req, res) => {
   const {
-    session
+    session,
   } = req;
 
   return res.render('reserva', {
@@ -31,7 +31,7 @@ routes.get('/reserva', Auth.verificarLogin, (req, res) => {
 
 routes.get('/calendario', Auth.verificarLogin, (req, res) => {
   const {
-    session
+    session,
   } = req;
 
   return res.render('calendario', {
