@@ -61,6 +61,11 @@ header .login img {
     color: #fff;
     background-color: #474463;
     border-color: #474463;
+
+}
+
+.btn {
+    font-family: 'montserratmedium', sans-serif !important;
 }
 
 .btn.btn-default {
@@ -93,8 +98,8 @@ form label.form-check-label .checkmark {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(40deg);
-    top: 6px;
-    left: 8px;
+    top: 5px;
+    left: 6px;
     border-radius: 2px;
     border-bottom: 3px solid #474463;
 }
@@ -172,13 +177,14 @@ input.form-control {
 }
 
 .fc-ltr .fc-list-heading-main {
-display: block;
-font-size: 14px;
-text-align: right;
-float: none;
+    display: block;
+    font-size: 14px;
+    text-align: right;
+    float: none;
 }
+
 .fc-ltr .fc-list-heading-alt {
-  display: block;
-  text-align: right;
-  float: none;
+    display: block;
+    text-align: right;
+    float: none;
 }

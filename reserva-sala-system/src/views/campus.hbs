@@ -1,0 +1,60 @@
+<section class="card mt-5 mb-3">
+    <div class="row justify-content-center align-items-start ">
+        <div class="col-md-7 p-5">
+            <h1>Campus</h1>
+            <div class="row">
+                <div class="col">
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Endereço</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each listaCampus}}
+
+                            <tr>
+                                <td>{{nome}}</td>
+                                <td>{{endereco}}</td>
+                                <td>
+                                    <a class="btn btn-secondary btn-raised" href="campus/editar/{{id}}">editar</a>
+                                    <a class="btn btn-raised btn-warning" href="campus/excluir/{{id}}">excluir</a>
+                                </td>
+                            </tr>
+                            {{/each}}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 justify-content-center p-5">
+            <h1>Novo campus</h1>
+            <form action="campus/cadastrar" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="nome" placeholder="nome" id="inputNome">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="endereco" placeholder="endereço" id="inputEndereco">
+                </div>
+                <div class="form-group d-flex flex-wrap justify-content-end mt-5 ">
+                    <button type="submit" class="btn btn-raised btn-primary ">Enviar</button>
+                </div>
+                <div class="form-group">
+                    {{#if erros}}
+                    <div class="alert alert-warning">
+
+                        {{#each erros}}
+                        <p class="m-0">{{this.message}}</p>
+                        {{/each}}
+
+                    </div>
+                    {{/if}}
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
