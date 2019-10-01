@@ -13,6 +13,7 @@ routes.get('/login', (req, res) => res.render('login', {}));
 routes.post('/login', LoginController.logar);
 routes.get('/logout', LoginController.deslogar);
 
+routes.get('/usuario/', UsuarioController.list);
 routes.get('/usuario/cadastrar', UsuarioController.index);
 
 routes.post('/usuario/cadastrar', UsuarioController.cadastrar);
@@ -40,4 +41,7 @@ routes.get('/calendario', Auth.verificarLogin, (req, res) => {
   });
 });
 
-module.exports = routes;
+
+module.exports = {
+  routes,
+};
