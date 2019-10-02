@@ -43,13 +43,14 @@ routes.get('/calendario', Auth.verificarLogin, (req, res) => {
   });
 });
 
-routes.get('/campus', Auth.verificarLogin, CampusController.index);
-routes.get('/campus/editar/:id', Auth.verificarLogin, CampusController.editar);
-routes.post('/campus/editar/:id', Auth.verificarLogin, CampusController.update);
-routes.post('/campus/cadastrar', Auth.verificarLogin, CampusController.cadastrar);
+routes.get('/campus', CampusController.index);
+routes.get('/campus/editar/:id', CampusController.show);
+routes.post('/campus/editar/:id', CampusController.update);
+routes.post('/campus/cadastrar', CampusController.create);
 
-routes.get('/salas', Auth.verificarLogin, SalaController.index);
-// routes.get('/salas/editar/:id', Auth.verificarLogin, SalaController.editar);
-routes.post('/salas/cadastrar', Auth.verificarLogin, SalaController.cadastrar);
+routes.get('/salas', SalaController.index);
+routes.get('/salas/editar/:id', SalaController.show);
+routes.post('/salas/editar/:id', SalaController.update);
+routes.post('/salas/cadastrar', SalaController.create);
 
 module.exports = routes;

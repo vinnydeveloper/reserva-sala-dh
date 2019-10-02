@@ -13,7 +13,7 @@ module.exports = {
     });
   },
 
-  async cadastrar(req, res) {
+  async create(req, res) {
     Campus.create({
       nome: req.body.nome,
       endereco: req.body.endereco,
@@ -31,39 +31,50 @@ module.exports = {
     });
   },
 
-  async editar(req, res, id) {
-    const campus = await Campus.findOne({
-      id,
-      raw: true,
-    });
-    return res.render('campusEditar', {
-      campus,
-    });
+  async show(req, res) {
+    const {
+      id
+    } = req.params;
+    Campus.findOne({
+        where: {
+          id
+        }
+      })
+      .then((campus) => {
+        res.render('campusEditar', {
+          campus,
+          layout: 'default',
+        })
+      }).catch((error) => {
+        res.render('campus', {
+          layout: 'default',
+          erros: error.errors,
+        });
+      });
   },
 
-  update(req, res, id) {
-    Campus.findOne({
-      id,
-    }).then((campus) => {
-      campus.updateAttributes({
-        nome: req.body.nome,
-        endereco: req.body.endereco,
-      });
-    }).then(res.render('campus', {
+  update(req, res) {
+    Campus.update({
+      nome: req.body.nome,
+      endereco: req.body.endereco,
+    }, {
+      returning: true,
+      where: {
+        id: req.body.campusId
+      },
+    }).then(async () => res.render('campus', {
       layout: 'default',
-      mensagem: 'Campus cadastrado com sucesso',
-      campus: Campus.findAll({
+      mensagem: 'Campus atualizado com sucesso',
+      listaCampus: await Campus.findAll({
         raw: true,
       }),
-    })).catch(async (error) => {
-      res.render('campusEditar', {
-        layout: 'default',
-        erros: error.errors,
-        campus: await Campus.findOne({
-          id,
-          raw: true,
-        }),
-      });
-    });
+    })).catch(async (error) => res.render('campusEditar', {
+      layout: 'default',
+      erros: error,
+      listaCampus: await Campus.findOne({
+        id: req.body.campusId,
+        raw: true,
+      })
+    }));
   },
 };
