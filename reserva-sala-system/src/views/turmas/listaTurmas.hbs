@@ -1,0 +1,33 @@
+<section>
+  <div class="container mt-5 ">
+    <div class="row card">
+      <div class="col-12">
+        <h1>Turmas</h1>
+      </div>
+      <div class="col-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Turma</th>
+              <th scope="col">Nome Curso</th>
+              <th scope="col">Data Inicio</th>
+              <th scope="col">Data Encerramento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              {{#each listaTurmas as turma}}
+                <th scope="row">1</th>
+                <td>{{turma.codigoTurma}}</td>
+                <td>{{curso}}</td>
+                <td>{{dataInicio}}</td>
+                <td>{{dataFim}}</td>
+              {{/each}}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

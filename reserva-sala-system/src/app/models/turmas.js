@@ -1,49 +1,50 @@
-
-module.exports = {
-  up: (queryInterface, Sequelize) => queryInterface.createTable('turmas', {
+module.exports = (sequelize, DataTypes) => {
+  const Turmas = sequelize.define('Turmas', {
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
     },
     codigoTurma: {
       allowNull: false,
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
     curso: {
       allowNull: false,
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
     periodo: {
       allowNull: false,
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
     dataInicio: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
     dataFim: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
     diasCurso: {
       allowNull: false,
-      type: Sequelize.TEXT,
+      type: DataTypes.TEXT,
     },
     observacao: {
       allowNull: false,
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
     },
     createdAt: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
     updatedAt: {
       allowNull: false,
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
     },
-  }),
+  }, {
+    freezeTableName: true,
+  });
 
-  down: (queryInterface) => queryInterface.dropTable('turmas'),
+  return Turmas;
 };
