@@ -73,6 +73,9 @@ module.exports = {
       id: req.body.salasId,
       raw: true,
     });
+    const listaCampus = Campus.findAll({
+      raw: true,
+    });
     Salas.update({
       nome: req.body.nome,
       campus_id: req.body.campus_id,
@@ -95,7 +98,7 @@ module.exports = {
     })).catch(async (error) => res.render('salasEditar', {
       layout: 'default',
       erros: error.errors,
-      listaCampus: sala
+      listaCampus: listaCampus
     }));
   },
 };
