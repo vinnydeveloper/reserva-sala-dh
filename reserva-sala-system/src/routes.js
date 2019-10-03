@@ -17,8 +17,11 @@ routes.get('/logout', LoginController.deslogar);
 
 
 routes.get('/usuario/cadastrar', UsuarioController.index);
+routes.get('/usuarios/', UsuarioController.admin);
+routes.get('/usuarios/editar/:id', UsuarioController.show);
+routes.post('/usuarios/editar/:id', UsuarioController.update);
 
-routes.post('/usuario/cadastrar', UsuarioController.cadastrar);
+routes.post('/usuario/cadastrar', UsuarioController.create);
 
 
 routes.get('/reserva', Auth.verificarLogin, (req, res) => {

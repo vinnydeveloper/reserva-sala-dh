@@ -1,0 +1,68 @@
+<section class="card mt-5 mb-3">
+    <div class="row justify-content-center align-items-start ">
+        <div class="col-md-7 p-5">
+            <h1>Usuários</h1>
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Email</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each listaUsuarios}}
+                            <tr>
+                                <td>{{nome}}</td>
+                                <td>{{email}}</td>
+                                <td>
+                                    <a class="btn btn-secondary btn-raised" href="/usuarios/editar/{{id}}">editar</a>
+                                    <a class="btn btn-raised btn-warning" href="/usuarios/excluir/{{id}}">excluir</a>
+                                </td>
+                            </tr>
+                            {{/each}}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 justify-content-center p-5">
+            <h1>
+                Novo usuário
+            </h1>
+            <form class="login/auth" action="/usuario/cadastrar" method="post">
+                <input type="hidden" name="page" value="admin">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="nome" placeholder="nome" id="inputNome">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email" placeholder="email" id="inputEmail">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="senha" placeholder="senha" id="inputPassword">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="confirme sua senha">
+                </div>
+                <div class="form-group">
+                    {{#if erros}}
+                    <div class="alert alert-warning">
+
+                        {{#each erros}}
+                        <p class="m-0">{{this.message}}</p>
+                        {{/each}}
+
+                    </div>
+                    {{/if}}
+                </div>
+                <div class="form-group d-flex flex-wrap justify-content-end mt-3">
+                    <button type="submit" class="btn btn-raised btn-primary">Concluir Cadastro</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>
