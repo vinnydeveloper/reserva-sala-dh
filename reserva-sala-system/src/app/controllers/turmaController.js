@@ -6,8 +6,7 @@ module.exports = {
     const listTurmas = await Turmas.findAll({
       raw: true,
     });
-    console.log(listTurmas);
-    return res.render('turmas/listaTurmas', {
+    return res.render('turmas/turmas', {
       listTurmas,
     });
   },
@@ -27,8 +26,15 @@ module.exports = {
       dataFim,
       diasCurso: dias,
       observacao,
-    }).then(() => res.render('/turma/cadastrar', {
-      mensagem: 'Cadastro concluido com sucesso!',
-    }));
+    }).then(() => res.redirect('/turmas'));
   },
+  excluir(req, res){
+    Turmas.destroy({
+      where:{
+        id:req.params.idTurma
+      }
+    }).then(()=>{
+      res.redirect('/turmas')
+    })
+  }
 };

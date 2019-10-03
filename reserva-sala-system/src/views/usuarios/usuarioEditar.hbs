@@ -1,0 +1,44 @@
+<section class="card mt-5 mb-3">
+    <div class="row justify-content-center align-items-start">
+
+        <div class="col justify-content-center p-5">
+            <h1>Editar - {{usuario.nome}}</h1>
+            <div class="row">
+                <form action="/usuarios/editar/{{usuario.id}}" class="col-md-6 edit-sala" method="post">
+                    <input type="hidden" name="usuarioId" value="{{usuario.id}}">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="nome" value="{{usuario.nome}}" placeholder="nome"
+                            id="inputNome">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" value="{{usuario.email}}"
+                            placeholder="email" id="inputEmail">
+                    </div>
+                    <div class="form-group mt-5">
+                        <label for="senha"><strong>Redefinir senha</strong></label>
+                        <input type="password" class="form-control" name="senha" placeholder="senha" id="inputPassword">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="confirme sua senha">
+                    </div>
+                    <div class="form-group">
+                        {{#if erros}}
+                        <div class="alert alert-warning">
+
+                            {{#each erros}}
+                            <p class="m-0">{{this.message}}</p>
+                            {{/each}}
+
+                        </div>
+                        {{/if}}
+                    </div>
+                    <div class="form-group d-flex flex-wrap justify-content-end mt-5">
+                        <a href="/usuarios" class="btn btn-default">voltar</a>
+                        <button type="submit" class="btn btn-raised btn-primary">Salvar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

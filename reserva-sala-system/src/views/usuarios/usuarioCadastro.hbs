@@ -16,24 +16,23 @@
       <div class="form-group">
         <input type="password" class="form-control" id="inputPassword" placeholder="confirme sua senha">
       </div>
+
       <div class="form-group d-flex flex-wrap justify-content-between mt-5">
         <button class="btn btn-raised btn-secondary">Já tenho um cadastro</button>
         <button type="submit" class="btn btn-raised btn-primary">Concluir Cadastro</button>
       </div>
+      <div class="form-group">
+        {{#if erros}}
+        <div class="alert alert-warning">
+
+          {{#each erros}}
+          <p class="m-0">{{this.message}}</p>
+          {{/each}}
+
+        </div>
+        {{/if}}
+      </div>
     </form>
   </div>
-  {{#if erros}}
-  <div class="col-md-5 card justify-content-center p-5">
-    <h1 class="logo">
-      Errors
-    </h1>
-    <ul>
 
-      {{#each erros}}
-      <li>{{this.message}}</li>
-      {{/each}}
-
-    </ul>
-  </div>
-  {{/if}}
 </section>

@@ -25,12 +25,13 @@ module.exports = {
       limit: 1,
       raw: true,
     });
-    const pass = bcrypt.compareSync(dados.senha, usuarios.senha);
+    const pass = usuarios?bcrypt.compareSync(dados.senha, usuarios.senha):0;
     if (usuarios == null || !pass) {
       return res.render('login', {
         mensagem: 'Usuario ou Senha inválida!',
       });
     }
+
     session.usuario = {
       id: usuarios.id,
       nome: usuarios.nome,

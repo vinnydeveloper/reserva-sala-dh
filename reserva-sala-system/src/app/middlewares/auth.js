@@ -6,7 +6,6 @@ module.exports = {
         mensagem: 'Você precisa está logado para ter acesso ao role!',
       });
     }
-    res.locals.session = req.session;
     return next();
   },
 };

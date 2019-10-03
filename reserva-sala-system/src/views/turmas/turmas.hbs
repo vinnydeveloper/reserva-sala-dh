@@ -1,0 +1,132 @@
+<section class="card mt-5 mb-3">
+  <div class="row justify-content-center align-items-start ">
+    <div class="col-md-7 p-5">
+      <h1>Turmas</h1>
+      <div class="row">
+        <div class="col">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Código da Turma</th>
+                <th>Curso</th>
+                <th>Periodo</th>
+                <th>Data de Inicio</th>
+                <th>Data de Encerramento</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each listTurmas}}
+
+              <tr>
+                <td>{{codigoTurma}}</td>
+                <td>{{curso}}</td>
+                <td>{{periodo}}</td>
+                <td>{{dataInicio}}</td>
+                <td>{{dataFim}}</td>
+                <td>
+                  <a class="btn btn-secondary btn-raised" href="/turmas/editar/{{id}}">editar</a>
+                  <a class="btn btn-raised btn-warning" href="/turmas/excluir/{{id}}">excluir</a>
+                </td>
+              </tr>
+              {{/each}}
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 justify-content-center p-5">
+      <h1>Nova Turma</h1>
+      <div class="row">
+        <div class="col-12 mt-3">
+          <form action="/turma/cadastrar" method="POST">
+            <div class="row">
+              <!--col 1-->
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="codigoTurma">Código da Turma</label>
+                  <input type="text" class="form-control" name="codigoTurma" id="codigoTurma"
+                    aria-describedby="codigoHelp">
+                  <small id="codigoHelp" class="form-text text-muted" class="bmd-help">Codigo utilizado pelo sistema
+                    SGE</small>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="curso">Nome do Curso</label>
+                  <input type="text" class="form-control" name="curso" id="curso">
+                  <span class="bmd-help">Cuidado com os erros ai!</span>
+                </div>
+              </div>
+              <!--col 2-->
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="codigoTurma">Periodo da Turma</label>
+                  <select name="periodo" class="custom-select">
+                    <option selected>Escolha um período</option>
+                    <option value="Matutino">Matutino</option>
+                    <option value="Vespertino">Vespertino</option>
+                    <option value="Noturno">Noturno</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="observacoes">Observações</label>
+                  <textarea class="form-control" name="observacao" id="exampleFormControlTextarea1"></textarea>
+                </div>
+              </div>
+              <!--col 3-->
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="dataInicio">Data de inicio</label>
+                  <input type="date" class="form-control" name="dataInicio" id="dataInicio">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <div class="form-group">
+                  <label for="dataFim">Data de Encerramento</label>
+                  <input type="date" class="form-control" name="dataFim" id="dataFim">
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-6">
+                <h6>Dias do curso</h4>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" name="diasCurso" id="seg" value="seg">
+                      <label class="custom-control-label" for="seg">Seg</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" name="diasCurso" id="Ter" value="Ter">
+                      <label class="custom-control-label" for="Ter">Ter</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" name="diasCurso" id="Qua" value="Qua">
+                      <label class="custom-control-label" for="Qua">Qua</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" name="diasCurso" id="Qui" value="Qui">
+                      <label class="custom-control-label" for="Qui">Qui</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" name="diasCurso" id="Sex" value="Sex">
+                      <label class="custom-control-label" for="Sex">Sex</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" name="diasCurso" id="Sab" value="Sab">
+                      <label class="custom-control-label" for="Sab">Sab</label>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-12 mt-2 text-right">
+
+                <button type="submit" class="btn btn-primary btn-raised">Enviar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

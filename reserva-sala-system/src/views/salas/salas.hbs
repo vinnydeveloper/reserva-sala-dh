@@ -1,0 +1,73 @@
+<section class="card mt-5 mb-3">
+    <div class="row justify-content-center align-items-start ">
+        <div class="col-md-7 p-5">
+            <h1>Salas</h1>
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Campus</th>
+                                <th>Lotação</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each listaSalas}}
+                            <tr>
+                                <td>{{nome}}</td>
+                                <td>{{campus_id}}</td>
+                                <td>{{lotacao}}</td>
+                                <td>
+                                    <a class="btn btn-secondary btn-raised" href="/salas/editar/{{id}}">editar</a>
+                                    <a class="btn btn-raised btn-warning" href="/salas/excluir/{{id}}">excluir</a>
+                                </td>
+                            </tr>
+                            {{/each}}
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 justify-content-center p-5">
+            <h1>
+                Nova sala
+            </h1>
+            <form action="salas/cadastrar" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="nome" placeholder="nome" id="inputNome">
+                </div>
+                <div class="form-group">
+                    <select name="campus_id" id="campus_id" class="form-control">
+                        <option selected disabled>selecione o campus</option>
+                        {{#each listaCampus}}
+                        <option value="{{id}}">{{nome}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" name="lotacao" placeholder="lotacao" id="inputLotacao">
+                </div>
+                <div class="form-group">
+                    <textarea name="descricao" id="descricao" class="form-control" placeholder="descrição"></textarea>
+                </div>
+                <div class="form-group d-flex flex-wrap justify-content-end mt-5 ">
+                    <button type="submit" class="btn btn-raised btn-primary ">Enviar</button>
+                </div>
+                <div class="form-group">
+                    {{#if erros}}
+                    <div class="alert alert-warning">
+
+                        {{#each erros}}
+                        <p class="m-0">{{this.message}}</p>
+                        {{/each}}
+
+                    </div>
+                    {{/if}}
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
