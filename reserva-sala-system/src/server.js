@@ -33,7 +33,7 @@ app.engine('hbs', hbs({
       this._sections[name] = options.fn(this);
       return null;
     },
-  },
+  }
 }));
 
 app.use((req, res, next) => {

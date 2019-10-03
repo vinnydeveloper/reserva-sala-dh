@@ -70,7 +70,7 @@ module.exports = {
       }),
     })).catch(async (error) => res.render('campusEditar', {
       layout: 'default',
-      erros: error,
+      erros: error.errors,
       listaCampus: await Campus.findOne({
         id: req.body.campusId,
         raw: true,

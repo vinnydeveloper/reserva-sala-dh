@@ -4,21 +4,17 @@
         <div class="col justify-content-center p-5">
             <h1>Editar - {{sala.nome}}</h1>
             <div class="row">
-                <form action="/salas/editar/{{sala.id}}" class="col-md-6" method="post">
-                    <input type="hidden" name="campusId" value="{{sala.id}}">
+                <form action="/salas/editar/{{sala.id}}" class="col-md-6 edit-sala" method="post">
+                    <input type="hidden" name="salaId" value="{{sala.id}}">
                     <div class="form-group">
                         <input type="text" class="form-control" name="nome" placeholder="nome" id="inputNome"
                             value="{{sala.nome}}">
                     </div>
                     <div class="form-group">
-                        <select name="campus_id" id="campus_id" class="form-control">
+                        <select name="campus_id" id="campus_id" class="form-control" data-value="{{sala.campus_id}}">
                             <option disabled>selecione o campus</option>
                             {{#each listaCampus}}
-                            {{#if (eq sala.campus_id id)}}
-                            <option value="{{id}}" selected>{{nome}}</option>
-                            {{else}}
                             <option value="{{id}}">{{nome}}</option>
-                            {{/if}}
                             {{/each}}
                         </select>
                     </div>
@@ -27,10 +23,11 @@
                             value="{{sala.lotacao}}">
                     </div>
                     <div class="form-group">
-                        <textarea name="descricao" id="descricao" class="form-control" placeholder="descrição"
-                            value="{{sala.descricao}}"></textarea>
+                        <textarea name="descricao" id="descricao" class="form-control"
+                            placeholder="descrição">{{sala.descricao}}</textarea>
                     </div>
                     <div class="form-group d-flex flex-wrap justify-content-end mt-5 ">
+                        <a href="/salas" class="btn btn-default">voltar</a>
                         <button type="submit" class="btn btn-raised btn-primary ">Enviar</button>
                     </div>
                     <div class="form-group">
