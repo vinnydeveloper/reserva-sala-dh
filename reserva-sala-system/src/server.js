@@ -5,8 +5,9 @@ const hbs = require('express-handlebars');
 const hbsSections = require('express-handlebars-sections');
 const session = require('express-session');
 const routes = require('./routes');
-
 const app = express();
+
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(session({

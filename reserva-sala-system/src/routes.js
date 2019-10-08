@@ -6,6 +6,7 @@ const TurmaController = require('./app/controllers/turmaController');
 const SalaController = require('./app/controllers/salaController');
 const CampusController = require('./app/controllers/campusController');
 const Auth = require('./app/middlewares/auth');
+const teste = require('./app/middlewares/validate');
 
 // rotas padrãoes sistema
 
@@ -20,7 +21,7 @@ routes.get('/usuarios/', UsuarioController.admin);
 routes.get('/usuarios/editar/:id', UsuarioController.show);
 routes.post('/usuarios/editar/:id', UsuarioController.update);
 
-routes.post('/usuario/cadastrar', UsuarioController.create);
+routes.post('/usuario/cadastrar',teste, UsuarioController.create);
 
 // turmas
 routes.get('/turmas', TurmaController.index);

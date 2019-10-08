@@ -2,18 +2,24 @@ const bcrypt = require('bcrypt');
 const {
   Usuarios
 } = require('../models');
-
+const {validationResult } = require('express-validator');
 module.exports = {
 
   index(req, res) {
     return res.render('usuarios/usuarioCadastro');
   },
   async create(req, res) {
+
+    const eerrors = await validationResult(req).array();
+
+      console.log(eerrors)
+
     const listaUsuarios = await Usuarios.findAll({
       raw: true,
     });
     const salt = bcrypt.genSaltSync(10);
     const passWordHash = bcrypt.hashSync(req.body.senha, salt);
+
     Usuarios.create({
       nome: req.body.nome,
       email: req.body.email,
@@ -35,13 +41,13 @@ module.exports = {
       if (req.body.page) {
         res.render('usuarios/usuarios', {
           layout: 'default',
-          erros: error.errors,
+          erros: eerrors,
           listaUsuarios
         })
       } else {
         res.render('usuarios/usuarioCadastro', {
           layout: 'default',
-          erros: error.errors,
+          erros: eerrors,
         })
       }
     });
