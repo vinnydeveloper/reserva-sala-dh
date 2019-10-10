@@ -43,4 +43,4 @@ app.use((req, res, next) => {
 });
 
 app.use(routes);
-app.listen(3300, console.log('Servidor rodando na porta 3300'));
+app.listen(3330, console.log('Servidor rodando na porta 3330'));

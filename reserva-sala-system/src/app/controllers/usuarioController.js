@@ -2,7 +2,9 @@ const bcrypt = require('bcrypt');
 const {
   Usuarios
 } = require('../models');
-const {validationResult } = require('express-validator');
+const {
+  validationResult
+} = require('express-validator');
 module.exports = {
 
   index(req, res) {
@@ -12,7 +14,7 @@ module.exports = {
 
     const eerrors = await validationResult(req).array();
 
-      console.log(eerrors)
+    console.log(eerrors)
 
     const listaUsuarios = await Usuarios.findAll({
       raw: true,
@@ -119,4 +121,14 @@ module.exports = {
       listaUsuarios: listaUsuarios
     }));
   },
+
+  excluir(req, res) {
+    Usuarios.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(() => {
+      res.redirect('/usuarios')
+    })
+  }
 };

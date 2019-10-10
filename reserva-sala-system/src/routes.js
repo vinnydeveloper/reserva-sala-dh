@@ -20,8 +20,9 @@ routes.get('/usuario/cadastrar', UsuarioController.index);
 routes.get('/usuarios/', UsuarioController.admin);
 routes.get('/usuarios/editar/:id', UsuarioController.show);
 routes.post('/usuarios/editar/:id', UsuarioController.update);
+routes.get('/usuarios/excluir/:id', UsuarioController.excluir);
 
-routes.post('/usuario/cadastrar',teste, UsuarioController.create);
+routes.post('/usuario/cadastrar', teste, UsuarioController.create);
 
 // turmas
 routes.get('/turmas', TurmaController.index);
