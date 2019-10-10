@@ -101,4 +101,13 @@ module.exports = {
       listaCampus: listaCampus
     }));
   },
+  excluir(req, res) {
+    Salas.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(() => {
+      res.redirect('/salas')
+    })
+  }
 };

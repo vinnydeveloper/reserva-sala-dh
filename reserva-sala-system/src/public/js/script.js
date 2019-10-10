@@ -5,7 +5,8 @@ $(document).ready(function () {
     $('.openModalExcluir').click((e) => {
         let item = e.target
         let idItem = $(item).data('id');
-        $('#modalExcluir  a.excluir').attr('href', `/usuarios/excluir/${idItem}`);
+        let type = $(item).data('type');
+        $('#modalExcluir  a.excluir').attr('href', `${type}/excluir/${idItem}`);
         $('#modalExcluir').show();
     })
 })

@@ -62,5 +62,6 @@ routes.get('/salas', Auth.verificarLogin, SalaController.index);
 routes.get('/salas/editar/:id', Auth.verificarLogin, SalaController.show);
 routes.post('/salas/editar/:id', Auth.verificarLogin, SalaController.update);
 routes.post('/salas/cadastrar', Auth.verificarLogin, SalaController.create);
+routes.get('/salas/excluir/:id', Auth.verificarLogin, SalaController.excluir);
 
 module.exports = routes;
