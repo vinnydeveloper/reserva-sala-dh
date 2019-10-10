@@ -77,4 +77,13 @@ module.exports = {
       })
     }));
   },
+  excluir(req, res) {
+    Campus.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(() => {
+      res.redirect('/campus')
+    })
+  }
 };

@@ -57,6 +57,7 @@ routes.get('/campus', Auth.verificarLogin, CampusController.index);
 routes.get('/campus/editar/:id', Auth.verificarLogin, CampusController.show);
 routes.post('/campus/editar/:id', Auth.verificarLogin, CampusController.update);
 routes.post('/campus/cadastrar', Auth.verificarLogin, CampusController.create);
+routes.get('/campus/excluir/:id', Auth.verificarLogin, CampusController.excluir);
 
 routes.get('/salas', Auth.verificarLogin, SalaController.index);
 routes.get('/salas/editar/:id', Auth.verificarLogin, SalaController.show);
