@@ -19,11 +19,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
     },
     campus_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'campus',
-        key: 'id',
-      },
+      type: DataTypes.INTEGER
     },
     createdAt: {
       allowNull: false,
@@ -36,6 +32,13 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     freezeTableName: true,
   });
+
+  Salas.associate = models => {
+    Salas.belongsTo(models.Campus, {
+      foreignKey: 'campus_id',
+      as: 'campus'
+    })
+  }
 
   return Salas;
 };

@@ -20,7 +20,7 @@ app.use(express.urlencoded({
   extended: false,
 }));
 app.use(express.json());
-
+//setando template engine
 app.engine('hbs', hbs({
   extname: 'hbs',
   layoutsDir: `${__dirname}/views/layouts/`,
@@ -34,6 +34,9 @@ app.engine('hbs', hbs({
       this._sections[name] = options.fn(this);
       return null;
     },
+    log(something) {
+      console.log(something);
+    }
   }
 }));
 

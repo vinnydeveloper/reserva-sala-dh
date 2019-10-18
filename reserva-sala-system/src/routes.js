@@ -6,7 +6,8 @@ const TurmaController = require('./app/controllers/turmaController');
 const SalaController = require('./app/controllers/salaController');
 const CampusController = require('./app/controllers/campusController');
 const Auth = require('./app/middlewares/auth');
-const teste = require('./app/middlewares/validate');
+const upload = require('./config/uploads');
+
 
 // rotas padrãoes sistema
 
@@ -16,13 +17,13 @@ routes.get('/login', LoginController.index);
 routes.post('/login', LoginController.logar);
 routes.get('/logout', LoginController.deslogar);
 // usuarios
-routes.get('/usuario/cadastrar', UsuarioController.index);
+routes.get('/usuario/cadastrar',UsuarioController.index);
 routes.get('/usuarios/', UsuarioController.admin);
 routes.get('/usuarios/editar/:id', UsuarioController.show);
 routes.post('/usuarios/editar/:id', UsuarioController.update);
 routes.get('/usuarios/excluir/:id', UsuarioController.excluir);
 
-routes.post('/usuario/cadastrar', teste, UsuarioController.create);
+routes.post('/usuario/cadastrar', upload.single('file'), UsuarioController.create);
 
 // turmas
 routes.get('/turmas', TurmaController.index);
@@ -59,7 +60,7 @@ routes.post('/campus/editar/:id', Auth.verificarLogin, CampusController.update);
 routes.post('/campus/cadastrar', Auth.verificarLogin, CampusController.create);
 routes.get('/campus/excluir/:id', Auth.verificarLogin, CampusController.excluir);
 
-routes.get('/salas', Auth.verificarLogin, SalaController.index);
+routes.get('/salas',  SalaController.index);
 routes.get('/salas/editar/:id', Auth.verificarLogin, SalaController.show);
 routes.post('/salas/editar/:id', Auth.verificarLogin, SalaController.update);
 routes.post('/salas/cadastrar', Auth.verificarLogin, SalaController.create);

@@ -3,7 +3,7 @@
     <h1 class="logo">
       Solicitar acesso
     </h1>
-    <form class="login/auth" method="post">
+    <form class="login/auth" method="post" enctype="multipart/form-data">
       <div class="form-group">
         <input type="text" class="form-control" name="nome" placeholder="nome" id="inputNome">
       </div>
@@ -15,6 +15,9 @@
       </div>
       <div class="form-group">
         <input type="password" class="form-control" id="inputPassword" placeholder="confirme sua senha">
+      </div>
+      <div class="form-group">
+          <input type="file" name="file">
       </div>
 
       <div class="form-group d-flex flex-wrap justify-content-between mt-5">

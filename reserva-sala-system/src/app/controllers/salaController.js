@@ -10,8 +10,14 @@ module.exports = {
       raw: true,
     });
     const listaSalas = await Salas.findAll({
-      raw: true,
+      include: [{
+        model:Campus,
+        as: 'campus'
+      }]
+     
     });
+
+  
     return res.render('salas/salas', {
       listaCampus,
       listaSalas,
